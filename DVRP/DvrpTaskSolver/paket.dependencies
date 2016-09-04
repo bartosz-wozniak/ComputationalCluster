@@ -1,0 +1,7 @@
+framework: net461
+source https://api.nuget.org/v3/index.json
+
+nuget Fixie version_in_path: true
+nuget Shouldly
+nuget FakeItEasy >= 2.0
+nuget log4net

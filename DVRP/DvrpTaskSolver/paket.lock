@@ -1,0 +1,8 @@
+FRAMEWORK: NET461
+NUGET
+  remote: http://api.nuget.org/v3/index.json
+  specs:
+    FakeItEasy (2.0.0-rc1)
+    Fixie (1.0.1) - version_in_path: true
+    log4net (2.0.5)
+    Shouldly (2.7)

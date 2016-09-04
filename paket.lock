@@ -1,0 +1,13 @@
+FRAMEWORK: NET461
+NUGET
+  remote: http://api.nuget.org/v3/index.json
+  specs:
+    Autofac (3.5.2)
+    CommandLineParser (2.0.275-beta)
+    FAKE (4.21.1)
+    FakeItEasy (2.0.0-rc1)
+    Fixie (1.0.0.41) - version_in_path: true
+    log4net (2.0.5)
+    MediatR (2.0.2)
+    Newtonsoft.Json (8.0.3)
+    Shouldly (2.6.0)

@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05099EC9-74A4-4DBA-8CBA-A4E3F46928F2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CCluster.CommunicationsServer</RootNamespace>
+    <AssemblyName>CCluster.CommunicationsServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackupCommunicationsServer.cs" />
+    <Compile Include="Backup\BackupNodeInfo.cs" />
+    <Compile Include="Backup\Handlers\StopTrackingNode.cs" />
+    <Compile Include="Backup\Handlers\StartTrackingNewNode.cs" />
+    <Compile Include="Backup\IBackupSender.cs" />
+    <Compile Include="Backup\RestoreBackupServer.cs" />
+    <Compile Include="Handlers\NotifyBackupOfDeadNode.cs" />
+    <Compile Include="Handlers\SendServerStateToBackup.cs" />
+    <Compile Include="Messaging\BackupMessageResender.cs" />
+    <Compile Include="Backup\Handlers\NoOperationHandler.cs" />
+    <Compile Include="IMainServer.cs" />
+    <Compile Include="Messaging\BackupClientMessage.cs" />
+    <Compile Include="Messaging\BackupInputMessageListener.cs" />
+    <Compile Include="Messaging\ClientMessage.cs" />
+    <Compile Include="CsModule.cs" />
+    <Compile Include="Exceptions\CannotReadMessageException.cs" />
+    <Compile Include="CommunicationsServer.cs" />
+    <Compile Include="Handlers\RegisterMessageHandler.cs" />
+    <Compile Include="Handlers\StatusMessageHandler.cs" />
+    <Compile Include="Messaging\BaseInputMessageListener.cs" />
+    <Compile Include="Messaging\PrimaryInputMessageListener.cs" />
+    <Compile Include="NodeTrack\CsDataStore.cs" />
+    <Compile Include="NodeTrack\ICsDataStore.cs" />
+    <Compile Include="NodeTrack\INodeTracker.cs" />
+    <Compile Include="NodeTrack\NodeInfo.cs" />
+    <Compile Include="NodeTrack\NodeTracker.cs" />
+    <Compile Include="NodeTrack\NodeTrackerManager.cs" />
+    <Compile Include="Notifications\NodeDead.cs" />
+    <Compile Include="Notifications\NodeRegistered.cs" />
+    <Compile Include="Notifications\NodeRemoved.cs" />
+    <Compile Include="Notifications\SwitchedToPrimary.cs" />
+    <Compile Include="ProblemManagement\Handlers\BackupDivideProblemHandler.cs" />
+    <Compile Include="ProblemManagement\Handlers\BackupProblemSync.cs" />
+    <Compile Include="ProblemManagement\Handlers\BackupSolvePartialProblemsHandler.cs" />
+    <Compile Include="ProblemManagement\Handlers\BaseProblemHandler.cs" />
+    <Compile Include="ProblemManagement\Handlers\ReactToDeadNode.cs" />
+    <Compile Include="ProblemManagement\Handlers\SolutionRequestHandler.cs" />
+    <Compile Include="ProblemManagement\Handlers\SolutionsMessageHandler.cs" />
+    <Compile Include="ProblemManagement\Handlers\SolveRequestHandler.cs" />
+    <Compile Include="ProblemManagement\IProblemDispatcher.cs" />
+    <Compile Include="ProblemManagement\Problem.cs" />
+    <Compile Include="ProblemManagement\ProblemDispatcher.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Messaging\ServerMessageStreamReader.cs" />
+    <Compile Include="CommunicationsServerConfiguration.cs" />
+    <Compile Include="Backup\BackupServerManager.cs" />
+    <Compile Include="Backup\BackupSender.cs" />
+    <Compile Include="Services\ClientIdGenerator.cs" />
+    <Compile Include="Backup\IBackupServerManager.cs" />
+    <Compile Include="Services\IClientIdGenerator.cs" />
+    <Compile Include="ProblemManagement\IProblemManager.cs" />
+    <Compile Include="ProblemManagement\ProblemManager.cs" />
+    <Compile Include="Storage\CommunicationServerStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CCluster.Common\CCluster.Common.csproj">
+      <Project>{635d4a9e-1dd3-4fb9-b9c2-62b5eff35611}</Project>
+      <Name>CCluster.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CCluster.Messages\CCluster.Messages.csproj">
+      <Project>{e7e00275-06ce-4b4e-b5dc-2a29d594341e}</Project>
+      <Name>CCluster.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
+      <ItemGroup>
+        <Reference Include="Autofac">
+          <HintPath>..\..\packages\Autofac\lib\net40\Autofac.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
+      <ItemGroup>
+        <Reference Include="CommandLine">
+          <HintPath>..\..\packages\CommandLineParser\lib\net45\CommandLine.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
+      <ItemGroup>
+        <Reference Include="log4net">
+          <HintPath>..\..\packages\log4net\lib\net45-full\log4net.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
+      <ItemGroup>
+        <Reference Include="MediatR">
+          <HintPath>..\..\packages\MediatR\lib\net45\MediatR.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="mscorlib">
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+</Project>

@@ -1,0 +1,5 @@
+﻿Autofac
+MediatR
+CommandLineParser
+Newtonsoft.Json
+log4net

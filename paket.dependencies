@@ -1,0 +1,12 @@
+framework: net461
+source https://api.nuget.org/v3/index.json
+
+nuget FAKE 4.21.1
+nuget Fixie version_in_path: true
+nuget Autofac
+nuget MediatR
+nuget Shouldly
+nuget FakeItEasy >= 2.0
+nuget CommandLineParser prerelease
+nuget Newtonsoft.Json
+nuget log4net

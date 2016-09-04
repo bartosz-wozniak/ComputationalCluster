@@ -1,0 +1,7 @@
+﻿{
+    "Port": 9999,
+    "CommunicationsTimeout": 10,
+    "IsBackup": false,
+    "MasterServerAddress": "127.0.0.1",
+    "MasterServerPort": 9999
+}
