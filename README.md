@@ -15,9 +15,3 @@
  3. [Methodology](docs/methodology.md),
  4. [Schedule](docs/schedule.md),
  5. [Architecture overview](docs/arch_overview.md).
-
-## Links
-
- 1. [Slack](https://wut-io2015.slack.com),
- 2. [Trello](https://trello.com/b/pCUGLJad/wut-io-2015),
- 3. [CI server](http://wut-io16-14-tc.westeurope.cloudapp.azure.com).
