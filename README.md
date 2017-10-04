@@ -1,7 +1,7 @@
 Computational Cluster
 =====================
 
-It is a computation cluster that can be used to solve NP problems (TSP, VRP).
+It is a computation cluster written in C# that can be used to solve NP problems (TSP, VRP). Main components of this computational cluster are: server, backup servers, task managers, task solvers, client nodes. Each node is highly independent. 
 
 ## Purpose
 
